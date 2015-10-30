@@ -1,0 +1,16 @@
+# == Schema Information
+#
+# Table name: pokemons
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  level      :integer
+#  trainer_id :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  trainer    :string
+#
+
+class Pokemon < ActiveRecord::Base
+	belongs_to :trainer
+end
