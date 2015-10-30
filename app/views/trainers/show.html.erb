@@ -1,9 +1,14 @@
 <h3>Trainer</h3>
+
+<%= button_to "Create new pokemon", new_pokemon_path(tid: @trainer), :class => "button small", :method => :get %> <br/>
+
 <p>Name: <%= @trainer.name if @trainer.name %></p>
 <p>Email: <%= @trainer.email if @trainer.email %></p>
-<p> List of Pokemon: 
+
+<p> List of Pokemon: <br/>
 	<% @list = @trainer.pokemons%>
 	<% @list.each do |x| %>
-			<%= x.name %> <br/>
+			<%= x.name %> (<%=x.health%>) 
+			<%= button_to "Cook the pokemon!", damage_path(id: x), :class => "button small", :method => :patch %> <br/>
 		<% end %> 
 </p>
